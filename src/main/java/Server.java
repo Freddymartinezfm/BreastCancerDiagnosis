@@ -21,6 +21,9 @@ public class Server implements Runnable {
 		return serverThread;
 	}
 
+	public String getXmlString() {
+		return xmlString;
+	}
 
 	public void start(){
 		Logging.getLogger().info("Starting Server....in background");

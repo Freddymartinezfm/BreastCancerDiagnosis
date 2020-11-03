@@ -16,6 +16,50 @@ public class Record {
 		this.ID = id;
 	}
 
+	public String getID() {
+		return ID;
+	}
+
+	public String getTHICKNESS() {
+		return THICKNESS;
+	}
+
+	public String getUNIFORMITY_SIZE() {
+		return UNIFORMITY_SIZE;
+	}
+
+	public String getUNIFORMITY_SHAPE() {
+		return UNIFORMITY_SHAPE;
+	}
+
+	public String getADHESION() {
+		return ADHESION;
+	}
+
+	public String getEPITHELIAL_SIZE() {
+		return EPITHELIAL_SIZE;
+	}
+
+	public String getBARE_NUCLEI() {
+		return BARE_NUCLEI;
+	}
+
+	public String getCHROMATIN() {
+		return CHROMATIN;
+	}
+
+	public String getNUCLEOLI() {
+		return NUCLEOLI;
+	}
+
+	public String getMITOSES() {
+		return MITOSES;
+	}
+
+	public String getCLASS() {
+		return CLASS;
+	}
+
 	public void set_thickness(String thickness) {
 		this.THICKNESS = thickness;
 	}
@@ -55,6 +99,8 @@ public class Record {
 	public void set_class(String CLASS) {
 		this.CLASS = CLASS;
 	}
+
+
 
 	@Override
 	public String toString() {
