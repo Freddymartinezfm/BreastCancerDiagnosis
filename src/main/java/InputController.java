@@ -13,6 +13,7 @@ public class InputController extends JFrame {
 
 	public InputController(){
 		setContentPane(contentPane);
+
 		setVisible(true);
 
 
