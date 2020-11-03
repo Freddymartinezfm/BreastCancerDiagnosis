@@ -1,3 +1,4 @@
+
 import java.awt.*;
 
 public class Main {
@@ -9,6 +10,10 @@ public class Main {
 		dialog.setPreferredSize(new Dimension(500, 400));
 		dialog.pack();
 		dialog.setVisible(true);
+
+
+
+
 //
 //
 //		Server server = new Server();
