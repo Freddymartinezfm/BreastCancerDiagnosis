@@ -1,17 +1,19 @@
 
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class ParseXmlData {
+	public static final Logger logger = LogManager.getLogger(ParseXmlData.class);
 	static final String DATASET = "Dataset";
 	static final String ID = "id";
 	static final String THICKNESS = "thickness";
@@ -56,7 +58,7 @@ public class ParseXmlData {
 				String tagName = xpp.getName();
 				switch (eventType){
 					case XmlPullParser.START_TAG:
-						Logging.getLogger().info("Starting tag: " + tagName);
+						logger.info("Starting tag: " + tagName);
 						if (DATASET.equalsIgnoreCase(tagName)){
 							inEntry = true;
 							currentRecord = new Record();
@@ -66,7 +68,7 @@ public class ParseXmlData {
 						textValue = xpp.getText();
 						break;
 					case XmlPullParser.END_TAG:
-						Logging.getLogger().info("Ending tag: " + tagName);
+						logger.info("Ending tag: " + tagName);
 						if (inEntry){
 							if (DATASET.equalsIgnoreCase(tagName)){
 								items.add(currentRecord);

@@ -1,13 +1,12 @@
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Logging {
-	public static final Logger logger = Logger.getLogger(Logger.class);
+	public static final Logger logger = LogManager.getLogger(Logger.class.getName());
 
 	public void logger_level(String msg){
 		logger.info(msg);
 	}
 
-	public static Logger getLogger() {
-		return logger;
-	}
+
 }

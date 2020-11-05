@@ -1,9 +1,15 @@
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server implements Runnable {
+	public static final Logger logger = LogManager.getLogger(Server.class);
+
 	private Thread serverThread;
 	private String xmlString;
 
@@ -26,7 +32,7 @@ public class Server implements Runnable {
 	}
 
 	public void start(){
-		Logging.getLogger().info("Starting Server....in background");
+		logger.info("Starting Server....in background");
 		StringBuilder sb = new StringBuilder();
 		try {
 			//TODO: input correct port #

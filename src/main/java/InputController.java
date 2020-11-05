@@ -2,70 +2,45 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
+
 
 public class InputController extends JFrame {
 	private JPanel contentPane;
-	private JTextField textField1;
 	private JButton connectButton;
-	private JTextField output;
-	private JButton resultsBtn;
+	private JTextArea outputArea;
+	private JButton button1;
 
-	public InputController(){
+
+	public InputController() {
 		setContentPane(contentPane);
-
 		setVisible(true);
+		go();
+	}
 
-
-
-
+	public void go(){
 		connectButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Server server = new Server();
+				//TODO server starts on background thread
 				try {
+					Server server = new Server();
 					server.getServerThread().start();
+
+					//TODO: client runs in background thread other than Server
 					Client client = new Client();
 					client.sendRequest();
 					ParseXmlData parseXmlData = new ParseXmlData();
 					parseXmlData.parse(server.getData());
 					parseXmlData.viewRecord();
-
 					for (var r : parseXmlData.getItems()){
-						output.setText(r.toString());
+						outputArea.setText(r.toString());
 					}
 				} catch (Exception ex){
 					ex.printStackTrace();
 				}
-
-
-
-
-
-
 			}
 		});
-
-
-		resultsBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-
-
-
-
-
-			}
-		});
-
 
 
 	}
-
-
-
-
-
-
 }
