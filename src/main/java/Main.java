@@ -7,20 +7,10 @@ public class Main {
 
 	public static void main(String[] args)  {
 		// TODO create controller to manage the record and send back to client to send to peers
-		Logger testLogger = LogManager.getLogger(Main.class.getName());
+		Logger logger = LogManager.getLogger(Main.class.getName());
+		logger.trace("trace");
 
-		testLogger.debug("basicLogToConsole for {}", testLogger);
-		testLogger.debug("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
-		testLogger.error("basicLogToConsole");
+
 
 
 
