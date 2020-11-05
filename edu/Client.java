@@ -4,7 +4,6 @@ import java.net.Socket;
 import org.apache.logging.log4j.LogManager;
 
 
-
 public class Client  {
 	public static final Logger logger = LogManager.getLogger(Client.class.getName());
 

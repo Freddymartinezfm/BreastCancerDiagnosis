@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration >
+    <!-- Logging Properties -->
+    <Properties>
+        <Property name="LOG_PATTERN">%d{MM-dd-yyyy HH:mm:ss} [%t] (%F:%L) %-5p %C{2} - %m%n</Property>
+        <Property name="BASE_PATH">C:\\logs</Property>
+    </Properties>
+    <!-- Logging Appenders -->
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="logFile" fileName="${APP_LOG_ROOT}/log-file.log"
+                     filePattern="${APP_LOG_ROOT}/log-file-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+    </Appenders>
+    <!-- Logging Loggers -->
+    <Loggers>
+        <Logger name ="Main" >
+            <AppenderRef ref="logFile"/>
+        </Logger>
+
+        <Root>
+            <AppenderRef ref="console"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
+

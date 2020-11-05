@@ -9,7 +9,7 @@ public class Main {
 		// TODO create controller to manage the record and send back to client to send to peers
 		Logger testLogger = LogManager.getLogger(Main.class.getName());
 
-		testLogger.debug("basicLogToConsole");
+		testLogger.debug("basicLogToConsole for {}", testLogger);
 		testLogger.debug("basicLogToConsole");
 		testLogger.error("basicLogToConsole");
 		testLogger.error("basicLogToConsole");
