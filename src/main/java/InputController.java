@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.Logger;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,7 +9,8 @@ public class InputController extends JFrame {
 	private JPanel contentPane;
 	private JButton connectButton;
 	private JTextArea outputArea;
-	private JButton button1;
+	private JTextField textField1;
+	private JTextPane textPane1;
 
 
 	public InputController() {
@@ -21,6 +24,10 @@ public class InputController extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//TODO server starts on background thread
+
+				outputArea.setText("Started....");
+
+
 				try {
 					Server server = new Server();
 					server.getServerThread().start();
@@ -28,12 +35,16 @@ public class InputController extends JFrame {
 					//TODO: client runs in background thread other than Server
 					Client client = new Client();
 					client.sendRequest();
-					ParseXmlData parseXmlData = new ParseXmlData();
+					ParseXmlData parseXmlData = new ParseXmlData(outputArea);
+
 					parseXmlData.parse(server.getData());
-					parseXmlData.viewRecord();
-					for (var r : parseXmlData.getItems()){
-						outputArea.setText(r.toString());
-					}
+//					parseXmlData.viewRecord();
+//					parseXmlData.getItems().toString();
+					outputArea = parseXmlData.getCallback();
+					outputArea.setText(parseXmlData.getItems().toString());
+//					for (var r : parseXmlData.getItems()){
+//						outputArea.setText(r.toString());
+//					}
 				} catch (Exception ex){
 					ex.printStackTrace();
 				}

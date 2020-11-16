@@ -7,6 +7,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +29,16 @@ public class ParseXmlData {
 	static final String CLASS = "CLASS";
 
 	private ArrayList<Record> items;
+	private JTextArea callback;
 
 
-
-	public ParseXmlData(){
+	public ParseXmlData(JTextArea callback){
+		this.callback = callback;
 		items = new ArrayList<>();
+	}
 
-
+	public JTextArea getCallback(){
+		return this.callback;
 	}
 
 	public ArrayList<Record> getItems() {
@@ -59,6 +63,7 @@ public class ParseXmlData {
 				switch (eventType){
 					case XmlPullParser.START_TAG:
 						logger.info("Starting tag: " + tagName);
+
 						if (DATASET.equalsIgnoreCase(tagName)){
 							inEntry = true;
 							currentRecord = new Record();
@@ -69,6 +74,8 @@ public class ParseXmlData {
 						break;
 					case XmlPullParser.END_TAG:
 						logger.info("Ending tag: " + tagName);
+						callback.setText("Ending tag: " + tagName);
+
 						if (inEntry){
 							if (DATASET.equalsIgnoreCase(tagName)){
 								items.add(currentRecord);
@@ -113,6 +120,14 @@ public class ParseXmlData {
 
 	public int size(){
 		return this.items.size();
+	}
+
+
+	@Override
+	public String toString() {
+		return "ParseXmlData{" +
+				"items=" + items +
+				'}';
 	}
 
 	public void viewRecord(){

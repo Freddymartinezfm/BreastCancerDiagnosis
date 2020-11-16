@@ -2,6 +2,8 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.awt.*;
+
 
 public class Main {
 
@@ -15,9 +17,9 @@ public class Main {
 
 
 
-//		InputController dialog = new InputController();
-//		dialog.setPreferredSize(new Dimension(800, 600));
-//		dialog.pack();
+		InputController dialog = new InputController();
+		dialog.setPreferredSize(new Dimension(450, 500));
+		dialog.pack();
 //		dialog.setVisible(true);
 
 
