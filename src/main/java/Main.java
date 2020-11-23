@@ -3,6 +3,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 
 
 public class Main {
@@ -11,12 +18,6 @@ public class Main {
 		// TODO create controller to manage the record and send back to client to send to peers
 		Logger logger = LogManager.getLogger(Main.class.getName());
 		logger.trace("trace");
-
-
-
-
-
-
 		InputController dialog = new InputController();
 		dialog.setPreferredSize(new Dimension(450, 500));
 		dialog.pack();
@@ -47,5 +48,7 @@ public class Main {
 
 
 	}
+
+
 
 }
