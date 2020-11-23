@@ -13,7 +13,7 @@ import java.net.URL;
 
 
 public class Main {
-
+// test pull
 	public static void main(String[] args)  {
 		// TODO create controller to manage the record and send back to client to send to peers
 		Logger logger = LogManager.getLogger(Main.class.getName());
